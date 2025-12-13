@@ -35,18 +35,19 @@ const config: Config = {
     locales: ['en'],
   },
 
-  presets: [
+  // File: book/docusaurus.config.js
+
+presets: [
     [
       'classic',
       {
         docs: {
+          path: 'docs', // <-- INSERTED: Explicitly points to the 'docs' subdirectory
+          include: ['**/*.md', '**/*.mdx'], // <-- INSERTED: Ensures all content files are found
           sidebarPath: './sidebars.ts',
-          // 🛑 REQUIRED CHANGE: ADD THIS LINE
           routeBasePath: '/', 
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+            'https://github.com/jiyanaveed/Physical-AI-Humanoid-Robotics/tree/main/book/', // (Assuming you updated this as well)
         },
       
         theme: {
@@ -55,7 +56,6 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
