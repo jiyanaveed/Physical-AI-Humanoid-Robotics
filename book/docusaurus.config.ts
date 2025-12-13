@@ -45,7 +45,8 @@ presets: [
           path: 'docs', // <-- INSERTED: Explicitly points to the 'docs' subdirectory
           include: ['**/*.md', '**/*.mdx'], // <-- INSERTED: Ensures all content files are found
           sidebarPath: './sidebars.ts',
-          routeBasePath: '/', 
+          routeBasePath: '/' ,
+          lastVersion: 'current', 
           editUrl:
             'https://github.com/jiyanaveed/Physical-AI-Humanoid-Robotics/tree/main/book/', // (Assuming you updated this as well)
         },
@@ -54,6 +55,19 @@ presets: [
           customCss: './src/css/custom.css',
         },
       } satisfies Preset.Options,
+    ],
+  ],
+  plugins: [
+    [
+      '@docusaurus/plugin-client-redirects',
+      {
+        redirects: [
+          {
+            to: '/intro', // Redirects to your intro.md file based on its ID
+            from: ['/'],
+          },
+        ],
+      },
     ],
   ],
   themeConfig: {
