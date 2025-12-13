@@ -85,9 +85,9 @@ presets: [
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'bookSidebar', // <<< UPDATE THIS to match the new ID
           position: 'left',
-          label: 'Book Modules', // Changed
+          label: 'Book Modules',
         },
         // Blog item deleted
         {
