@@ -14,11 +14,16 @@ RUN apt-get update && apt-get install -y \
     python3-pip \
     python3-colcon-common-extensions \
     ros-humble-gazebo-ros-pkgs \
+    ros-humble-opencv-ros-compat \
+    python3-opencv \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
 # Install PyTorch and related libraries
 RUN pip install torch torchvision torchaudio
+
+# Install additional Python libraries for Module 4: Control Systems and Robot Dynamics
+RUN pip install numpy scipy sympy python-control
 
 # Install Node.js and npm
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
