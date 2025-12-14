@@ -59,19 +59,20 @@ presets: [
   ],
   plugins: [
     [
-      '@docusaurus/plugin-client-redirects',
-      {
-        redirects: [
-          {
-            // IMPORTANT: Use the clean URL path, not the file extension
-            to: '/module-1-ros2-fundamentals/chapter-1-1-nodes-topics-services', 
-            // If you want the old documentation root (e.g., '/docs/intro') to go here, 
-            // you can include those old paths in 'from'
-            from: ['/intro'], // This line explicitly removes the old, non-existent default
-          },
-        ],
-      },
-    ],
+  '@docusaurus/plugin-content-docs',
+  /** @type {import('@docusaurus/plugin-content-docs').Options} */
+  ({
+    sidebarPath: './sidebars.ts',
+    // Optional: change the path for the docs sidebar items
+    // editUrl: '...', 
+
+    // CRITICAL FIX: Set the docs root to the site root (/)
+    routeBasePath: '/', 
+
+    // This setting ensures that the first item in the sidebar becomes the default index page
+    includeCurrentVersion: true, 
+  }),
+],
   ],
   themeConfig: {
     // Replace with your project's social card
