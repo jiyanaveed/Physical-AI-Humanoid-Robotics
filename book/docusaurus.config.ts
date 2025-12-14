@@ -63,8 +63,11 @@ presets: [
       {
         redirects: [
           {
-            to: '/intro', // Redirects to your intro.md file based on its ID
-            from: ['/'],
+            // IMPORTANT: Use the clean URL path, not the file extension
+            to: '/module-1-ros2-fundamentals/chapter-1-1-nodes-topics-services', 
+            // If you want the old documentation root (e.g., '/docs/intro') to go here, 
+            // you can include those old paths in 'from'
+            from: ['/intro'], // This line explicitly removes the old, non-existent default
           },
         ],
       },
