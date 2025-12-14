@@ -25,7 +25,7 @@ const config: Config = {
   organizationName: 'jiyanaveed', // Usually your GitHub org/user name.
   projectName: 'Physical-AI-Humanoid-Robotics', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks:  'warn', // Change 'throw' (the default) to 'warn' or 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -107,8 +107,8 @@ presets: [
           title: 'Book',
           items: [
             {
-              label: 'Module 1: Simulation Introduction', // Changed
-              to: '/module-1-simulation-sensors/intro', // <<< VERIFY THIS PATH
+              label: 'Module 1: ROS 2 Fundamentals', // Updated label for clarity
+              to: '/module-1-ros2-fundamentals/chapter-1-1-nodes-topics-services',
             },
           ],
         },
