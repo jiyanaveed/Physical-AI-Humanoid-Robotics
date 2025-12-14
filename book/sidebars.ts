@@ -19,29 +19,34 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      label: 'Module 2: Core AI Algorithms',
+      // OLD Label: 'Module 2: Core AI Algorithms' 
+      label: 'Module 2: Simulation and Sensors', // Corrected to match your folder/plan
       items: [
-        'module-2-core-ai-algorithms/chapter-2-1-path-planning',
-        'module-2-core-ai-algorithms/chapter-2-2-slam-principles',
-        'module-2-core-ai-algorithms/chapter-2-3-reinforcement-learning',
+        // CORRECTED PATH: module-2-simulation-sensors
+        'module-2-simulation-sensors/chapter-2-1-path-planning',
+        'module-2-simulation-sensors/chapter-2-2-slam-principles',
+        'module-2-simulation-sensors/chapter-2-3-reinforcement-learning',
       ],
     },
     {
       type: 'category',
-      label: 'Module 3: Perception and Vision Fusion',
+      // OLD Label: 'Module 3: Perception and Vision Fusion'
+      label: 'Module 3: Perception and Vision', // Corrected to match your folder/plan
       items: [
-        'module-3-perception-vision-fusion/chapter-3-1-robotics-sensors',
-        'module-3-perception-vision-fusion/chapter-3-2-computer-vision',
-        'module-3-perception-vision-fusion/chapter-3-3-sensor-fusion',
+        // CORRECTED PATH: module-3-perception-vision
+        'module-3-perception-vision/chapter-3-1-robotics-sensors',
+        'module-3-perception-vision/chapter-3-2-computer-vision',
+        'module-3-perception-vision/chapter-3-3-sensor-fusion',
       ],
     },
     {
       type: 'category',
       label: 'Module 4: Control and Dynamics',
       items: [
-        'module-04/chapter-4-1-kinematics',
-        'module-04/chapter-4-2-control-theory',
-        'module-04/chapter-4-3-advanced-dynamics',
+        // CORRECTED PATH: module-4-control-dynamics
+        'module-4-control-dynamics/chapter-4-1-kinematics',
+        'module-4-control-dynamics/chapter-4-2-control-theory',
+        'module-4-control-dynamics/chapter-4-3-advanced-dynamics',
       ],
     },
   ],
