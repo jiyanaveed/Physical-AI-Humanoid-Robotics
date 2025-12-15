@@ -69,6 +69,7 @@ presets: [
       logo: {
         alt: 'Physical AI and Humanoid Robotics Logo', // Changed
         src: 'img/logo.svg',
+        href: '/intro',
       },
       items: [
         {
