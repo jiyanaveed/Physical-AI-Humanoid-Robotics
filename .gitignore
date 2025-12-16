@@ -19,3 +19,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 spec-kit-plus/
+.env
+RAG/.env
+*.env
+.env.*
