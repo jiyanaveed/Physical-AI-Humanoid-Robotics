@@ -65,20 +65,18 @@ presets: [
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Physical AI & Humanoid Robotics', // Changed
       logo: {
         alt: 'Physical AI and Humanoid Robotics Logo', // Changed
         src: 'img/logo.svg',
-        href: '/intro',
+        href: '/',
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'bookSidebar', // <<< UPDATE THIS to match the new ID
+          type: 'doc',
+          docId: 'module-1-ros2-fundamentals/chapter-1-1-nodes-topics-services',
           position: 'left',
           label: 'Book Modules',
         },
-        // Blog item deleted
         {
           href: 'https://github.com/jiyanaveed/Physical-AI-Humanoid-Robotics', // Changed
           label: 'GitHub',
@@ -113,8 +111,8 @@ presets: [
       copyright: `Copyright © ${new Date().getFullYear()} Physical AI and Humanoid Robotics. Built with Docusaurus.`, // Changed
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.vsDark,
+      darkTheme: prismThemes.vsDark,
     },
   } satisfies Preset.ThemeConfig,
 };

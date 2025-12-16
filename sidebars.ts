@@ -1,14 +1,12 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
-  // This is the sidebar ID, matching the `sidebarId` in your docusaurus.config.js
   bookSidebar: [
-    // --- NEW: Introduction/Landing Page for the book ---
-    'intro', 
+    'intro',
     {
       type: 'category',
       label: 'Module 1: ROS 2 Fundamentals',
-      link: { 
+      link: {
         type: 'doc',
         id: 'module-1-ros2-fundamentals/chapter-1-1-nodes-topics-services',
       },
@@ -21,7 +19,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Module 2: Core AI Algorithms',
-      link: { 
+      link: {
         type: 'doc',
         id: 'module-2-core-ai-algorithms/chapter-2-1-path-planning',
       },
@@ -34,7 +32,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Module 3: Control and Planning',
-      link: { 
+      link: {
         type: 'doc',
         id: 'module-3-control-planning/chapter-3-1-robotics-sensors',
       },
@@ -47,7 +45,7 @@ const sidebars: SidebarsConfig = {
     {
       type: 'category',
       label: 'Module 4: Advanced Kinematics and Dynamics',
-      link: { 
+      link: {
         type: 'doc',
         id: 'module-04/chapter-4-1-kinematics',
       },
