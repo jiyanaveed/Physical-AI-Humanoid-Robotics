@@ -3,6 +3,8 @@
 Auto-generated from all feature plans. Last updated: 2025-12-12
 
 ## Active Technologies
+- Python 3.8+ + requests, qdrant-client, cohere, beautifulsoup4, python-dotenv, trafilatura (005-rag-ingestion-pipeline)
+- Qdrant Cloud vector database (005-rag-ingestion-pipeline)
 
 - Python 3.x, ROS 2 (Humble) + NumPy + SciPy (module-4-control-dynamics)
 - Docusaurus (book project)
@@ -53,6 +55,7 @@ rag_api/ # if it exists
 - Docusaurus (TypeScript/React): ESLint, Prettier.
 
 ## Recent Changes
+- 005-rag-ingestion-pipeline: Added Python 3.8+ + requests, qdrant-client, cohere, beautifulsoup4, python-dotenv, trafilatura
 
 - module-4-control-dynamics: Added Python 3.x, ROS 2 (Humble) + NumPy + SciPy, Docusaurus
 

@@ -1,15 +1,14 @@
 import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
-  // Define your book structure manually for predictable navigation
-  bookSidebar: [ // <<< Changed the ID for clarity, update navbar too!
+  bookSidebar: [
+    'intro',
     {
       type: 'category',
       label: 'Module 1: ROS 2 Fundamentals',
       link: {
-        type: 'generated-index',
-        title: 'Module 1: ROS 2 Fundamentals',
-        description: 'Introduction to ROS 2 concepts, Python agents, and URDF.',
+        type: 'doc',
+        id: 'module-1-ros2-fundamentals/chapter-1-1-nodes-topics-services',
       },
       items: [
         'module-1-ros2-fundamentals/chapter-1-1-nodes-topics-services',
@@ -19,34 +18,41 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
-      // OLD Label: 'Module 2: Core AI Algorithms' 
-      label: 'Module 2: Simulation and Sensors', // Corrected to match your folder/plan
+      label: 'Module 2: Core AI Algorithms',
+      link: {
+        type: 'doc',
+        id: 'module-2-core-ai-algorithms/chapter-2-1-path-planning',
+      },
       items: [
-        // CORRECTED PATH: module-2-simulation-sensors
-        'module-2-simulation-sensors/chapter-2-1-path-planning',
-        'module-2-simulation-sensors/chapter-2-2-slam-principles',
-        'module-2-simulation-sensors/chapter-2-3-reinforcement-learning',
+        'module-2-core-ai-algorithms/chapter-2-1-path-planning',
+        'module-2-core-ai-algorithms/chapter-2-2-slam',
+        'module-2-core-ai-algorithms/chapter-2-3-rl-robotics',
       ],
     },
     {
       type: 'category',
-      // OLD Label: 'Module 3: Perception and Vision Fusion'
-      label: 'Module 3: Perception and Vision', // Corrected to match your folder/plan
+      label: 'Module 3: Control and Planning',
+      link: {
+        type: 'doc',
+        id: 'module-3-control-planning/chapter-3-1-robotics-sensors',
+      },
       items: [
-        // CORRECTED PATH: module-3-perception-vision
-        'module-3-perception-vision/chapter-3-1-robotics-sensors',
-        'module-3-perception-vision/chapter-3-2-computer-vision',
-        'module-3-perception-vision/chapter-3-3-sensor-fusion',
+        'module-3-control-planning/chapter-3-1-robotics-sensors',
+        'module-3-control-planning/chapter-3-2-computer-vision',
+        'module-3-control-planning/chapter-3-3-sensor-fusion',
       ],
     },
     {
       type: 'category',
-      label: 'Module 4: Control and Dynamics',
+      label: 'Module 4: Advanced Kinematics and Dynamics',
+      link: {
+        type: 'doc',
+        id: 'module-04/chapter-4-1-kinematics',
+      },
       items: [
-        // CORRECTED PATH: module-4-control-dynamics
-        'module-4-control-dynamics/chapter-4-1-kinematics',
-        'module-4-control-dynamics/chapter-4-2-control-theory',
-        'module-4-control-dynamics/chapter-4-3-advanced-dynamics',
+        'module-04/chapter-4-1-kinematics',
+        'module-04/chapter-4-2-control-theory',
+        'module-04/chapter-4-3-advanced-dynamics',
       ],
     },
   ],

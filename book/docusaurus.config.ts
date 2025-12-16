@@ -46,13 +46,14 @@ presets: [
           include: ['**/*.md', '**/*.mdx'], // <-- INSERTED: Ensures all content files are found
           sidebarPath: './sidebars.ts',
           routeBasePath: '/' ,
-          lastVersion: 'current', 
+          lastVersion: 'current',
           editUrl:
             'https://github.com/jiyanaveed/Physical-AI-Humanoid-Robotics/tree/main/book/', // (Assuming you updated this as well)
         },
-      
+        blog: false, // Disable the blog plugin
+
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/custom.css', './src/css/tailwind.css'],
         },
       } satisfies Preset.Options,
     ],
@@ -62,7 +63,15 @@ presets: [
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
-      respectPrefersColorScheme: true,
+      defaultMode: 'dark',
+      disableSwitch: false,
+      respectPrefersColorScheme: false,
+    },
+    announcementBar: {
+      id: 'support_us',
+      content:
+        'We use cookies to improve your experience. <a target="_blank" rel="noopener noreferrer" href="https://github.com/jiyanaveed/Physical-AI-Humanoid-Robotics">Learn more</a>',
+      isCloseable: true,
     },
     navbar: {
       logo: {
@@ -113,6 +122,7 @@ presets: [
     prism: {
       theme: prismThemes.vsDark,
       darkTheme: prismThemes.vsDark,
+      additionalLanguages: ['python', 'bash', 'json'],
     },
   } satisfies Preset.ThemeConfig,
 };

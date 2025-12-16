@@ -1,30 +1,174 @@
 /**
- * Any CSS included here will be global. The classic template
- * bundles Infima by default. Infima is a CSS framework designed to
- * work well for content-centric websites.
+ * Any CSS you add here will be applied to all pages of your Docusaurus site.
  */
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #FFC107; /* Mustard Yellow */
+  --ifm-color-primary-dark: #E6AF00;
+  --ifm-color-primary-darker: #CC9C00;
+  --ifm-color-primary-darkest: #B38900;
+  --ifm-color-primary-light: #FFC933;
+  --ifm-color-primary-lighter: #FFD166;
+  --ifm-color-primary-lightest: #FFD999;
   --ifm-code-font-size: 95%;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* --- Theme Variables --- */
+  --color-primary-accent: #FFC107; /* Mustard Yellow */
+  --color-background: #000000;     /* Black */
+  --color-text-primary: #FFFFFF;   /* White for main text */
+  --color-text-secondary: #CCCCCC; /* Light grey for secondary text/lists */
+  --color-card-background: #1A1A1A;/* Slightly lighter black for card background */
+  --color-card-border: #333333;    /* Dark grey for card borders */
+  --color-hover-shadow: rgba(255, 193, 7, 0.2); /* Subtle yellow shadow */
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
-  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+/* Ensure Docusaurus variables are also updated for theme consistency */
+html[data-theme='dark'] {
+  --ifm-background-color: var(--color-background);
+  --ifm-font-color-base: var(--color-text-primary);
+  --ifm-navbar-background-color: var(--color-background);
+  --ifm-footer-background-color: var(--color-background);
+}
+
+/* Apply global font family */
+body {
+  font-family: var(--font-family-primary);
+  background-color: var(--color-background);
+  color: var(--color-text-primary);
+  margin: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Layout --- */
+.plugin-doc-id-intro .doc-sidebar-container {
+    display: none !important;
+}
+
+.plugin-doc-id-intro .doc-content-container {
+    flex: 1 1 auto !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+
+.plugin-doc-id-intro main.doc-content-desktop {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.plugin-doc-id-intro main .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+
+.plugin-doc-id-intro main .col {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+}
+
+.plugin-doc-id-intro main .row {
+    margin: 0 !important;
+}
+
+
+
+/* --- Homepage Section Styles --- */
+.hero-section {
+  text-align: center;
+  padding: 6rem 2rem;
+  margin-bottom: 2rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
+  color: white;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--color-primary-accent);
+}
+
+.hero-description {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.start-reading-button {
+  background-color: var(--color-primary-accent);
+  color: var(--color-background);
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.start-reading-button:hover {
+  background-color: #FFD166; /* Lighter mustard yellow */
+  transform: translateY(-2px);
+}
+
+/* --- Modules Section --- */
+.modules-section {
+    padding: 3rem 2rem;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-primary-accent);
+}
+
+.section-description {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* --- Other --- */
+.get-started-section {
+    padding: 3rem 2rem;
+}
+
+.get-started-list {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+}
+
+.get-started-list li {
+  margin-bottom: 1rem;
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+.navbar__brand {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__logo img {
+    height: 40px;
 }

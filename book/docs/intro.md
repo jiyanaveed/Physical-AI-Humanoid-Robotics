@@ -1,5 +1,5 @@
 ---
-id: intro
+id: homepage
 slug: /
 sidebar_position: 1
 hide_sidebar: true

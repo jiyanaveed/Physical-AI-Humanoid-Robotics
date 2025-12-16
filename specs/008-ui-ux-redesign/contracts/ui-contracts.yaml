@@ -1,0 +1,291 @@
+openapi: 3.0.3
+info:
+  title: Docusaurus UI/UX Redesign API Contracts
+  description: API contracts for UI components and interactions in the redesigned Docusaurus book
+  version: 1.0.0
+servers:
+  - url: http://localhost:3000
+    description: Development server
+  - url: https://your-book-url.com
+    description: Production server
+paths:
+  /api/ui/config:
+    get:
+      summary: Get UI configuration
+      description: Returns the current UI configuration including theme settings, responsive breakpoints, and component styles
+      responses:
+        '200':
+          description: UI configuration successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UIConfig'
+  /api/chatbot/state:
+    get:
+      summary: Get chatbot state
+      description: Returns the current state of the embedded chatbot (docked/expanded/minimized)
+      responses:
+        '200':
+          description: Chatbot state successfully retrieved
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatbotState'
+    put:
+      summary: Update chatbot state
+      description: Updates the state of the embedded chatbot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ChatbotStateUpdate'
+      responses:
+        '200':
+          description: Chatbot state successfully updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ChatbotState'
+        '400':
+          description: Invalid chatbot state update request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+  /api/text-selection/query:
+    post:
+      summary: Create query from text selection
+      description: Creates a query context from selected text to send to the RAG system
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TextSelectionQuery'
+      responses:
+        '200':
+          description: Query context created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/QueryContext'
+        '400':
+          description: Invalid text selection query request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+components:
+  schemas:
+    UIConfig:
+      type: object
+      properties:
+        theme:
+          type: object
+          properties:
+            mode:
+              type: string
+              enum: [light, dark]
+              description: Current theme mode
+              example: "dark"
+            primaryColor:
+              type: string
+              description: Primary brand color
+              example: "#1b6dfc"
+            secondaryColor:
+              type: string
+              description: Secondary brand color
+              example: "#0d5ae5"
+          required:
+            - mode
+            - primaryColor
+            - secondaryColor
+        responsive:
+          type: object
+          properties:
+            breakpoints:
+              type: object
+              properties:
+                mobile:
+                  type: integer
+                  description: Mobile breakpoint in pixels
+                  example: 768
+                tablet:
+                  type: integer
+                  description: Tablet breakpoint in pixels
+                  example: 1024
+                desktop:
+                  type: integer
+                  description: Desktop breakpoint in pixels
+                  example: 1440
+          required:
+            - breakpoints
+        typography:
+          type: object
+          properties:
+            fontFamily:
+              type: string
+              description: Base font family
+              example: "system-ui, -apple-system, sans-serif"
+            scale:
+              type: object
+              properties:
+                sm:
+                  type: string
+                  example: "0.875rem"
+                base:
+                  type: string
+                  example: "1rem"
+                lg:
+                  type: string
+                  example: "1.125rem"
+                xl:
+                  type: string
+                  example: "1.25rem"
+                h1:
+                  type: string
+                  example: "2.5rem"
+                h2:
+                  type: string
+                  example: "2rem"
+                h3:
+                  type: string
+                  example: "1.75rem"
+          required:
+            - fontFamily
+            - scale
+      required:
+        - theme
+        - responsive
+        - typography
+
+    ChatbotState:
+      type: object
+      properties:
+        currentState:
+          type: string
+          enum: [docked, expanded, minimized]
+          description: Current visual state of the chatbot
+          example: "docked"
+        isVisible:
+          type: boolean
+          description: Whether the chatbot UI is currently visible
+          example: true
+        position:
+          type: object
+          properties:
+            x:
+              type: number
+              description: X coordinate of the chatbot (for drag positioning)
+              example: 20
+            y:
+              type: number
+              description: Y coordinate of the chatbot (for drag positioning)
+              example: 20
+          required:
+            - x
+            - y
+      required:
+        - currentState
+        - isVisible
+        - position
+
+    ChatbotStateUpdate:
+      type: object
+      properties:
+        newState:
+          type: string
+          enum: [docked, expanded, minimized]
+          description: New state to transition to
+          example: "expanded"
+        newPosition:
+          type: object
+          properties:
+            x:
+              type: number
+              description: New X coordinate
+              example: 20
+            y:
+              type: number
+              description: New Y coordinate
+              example: 20
+      required:
+        - newState
+
+    TextSelectionQuery:
+      type: object
+      properties:
+        selectedText:
+          type: string
+          description: The text that was selected by the user
+          example: "The robot uses sensors to perceive its environment"
+        context:
+          type: object
+          properties:
+            pageUrl:
+              type: string
+              description: URL of the current page
+              example: "https://example.com/book/module1/chapter1"
+            pageTitle:
+              type: string
+              description: Title of the current page
+              example: "Introduction to Robotics"
+            section:
+              type: string
+              description: Current section within the page
+              example: "Sensors and Perception"
+          required:
+            - pageUrl
+            - pageTitle
+            - section
+      required:
+        - selectedText
+        - context
+
+    QueryContext:
+      type: object
+      properties:
+        queryId:
+          type: string
+          description: Unique identifier for the query
+          example: "query_12345"
+        queryText:
+          type: string
+          description: The original query text
+          example: "What sensors does the robot use?"
+        contextText:
+          type: string
+          description: The selected text that provides context
+          example: "The robot uses sensors to perceive its environment"
+        timestamp:
+          type: string
+          format: date-time
+          description: When the query context was created
+          example: "2025-12-17T10:30:00Z"
+      required:
+        - queryId
+        - queryText
+        - contextText
+        - timestamp
+
+    ErrorResponse:
+      type: object
+      properties:
+        errorId:
+          type: string
+          description: Unique identifier for the error
+          example: "error_67890"
+        message:
+          type: string
+          description: Human-readable error message
+          example: "Invalid request format"
+        timestamp:
+          type: string
+          format: date-time
+          description: When the error occurred
+          example: "2025-12-17T10:30:00Z"
+      required:
+        - errorId
+        - message
+        - timestamp
