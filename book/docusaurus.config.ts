@@ -10,9 +10,9 @@ const config: Config = {
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
-  future: {
-    v4: true, // Improve compatibility with the upcoming Docusaurus v4
-  },
+  // future: {
+  //   v4: true, // Improve compatibility with the upcoming Docusaurus v4
+  // },
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
@@ -42,7 +42,7 @@ presets: [
       'classic',
       {
         docs: {
-          path: 'docs', // <-- INSERTED: Explicitly points to the 'docs' subdirectory
+          path: 'docs', // <-- Corrected: Explicitly points to the 'docs' subdirectory
           include: ['**/*.md', '**/*.mdx'], // <-- INSERTED: Ensures all content files are found
           sidebarPath: './sidebars.ts',
           routeBasePath: '/' ,
@@ -57,23 +57,7 @@ presets: [
       } satisfies Preset.Options,
     ],
   ],
-  plugins: [
-    [
-  '@docusaurus/plugin-content-docs',
-  /** @type {import('@docusaurus/plugin-content-docs').Options} */
-  ({
-    sidebarPath: './sidebars.ts',
-    // Optional: change the path for the docs sidebar items
-    // editUrl: '...', 
-
-    // CRITICAL FIX: Set the docs root to the site root (/)
-    routeBasePath: '/', 
-
-    // This setting ensures that the first item in the sidebar becomes the default index page
-    includeCurrentVersion: true, 
-  }),
-],
-  ],
+  
   themeConfig: {
     // Replace with your project's social card
     image: 'img/docusaurus-social-card.jpg',
@@ -81,19 +65,18 @@ presets: [
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Physical AI & Humanoid Robotics', // Changed
       logo: {
         alt: 'Physical AI and Humanoid Robotics Logo', // Changed
         src: 'img/logo.svg',
+        href: '/',
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'bookSidebar', // <<< UPDATE THIS to match the new ID
+          type: 'doc',
+          docId: 'module-1-ros2-fundamentals/chapter-1-1-nodes-topics-services',
           position: 'left',
           label: 'Book Modules',
         },
-        // Blog item deleted
         {
           href: 'https://github.com/jiyanaveed/Physical-AI-Humanoid-Robotics', // Changed
           label: 'GitHub',
@@ -128,8 +111,8 @@ presets: [
       copyright: `Copyright © ${new Date().getFullYear()} Physical AI and Humanoid Robotics. Built with Docusaurus.`, // Changed
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.vsDark,
+      darkTheme: prismThemes.vsDark,
     },
   } satisfies Preset.ThemeConfig,
 };

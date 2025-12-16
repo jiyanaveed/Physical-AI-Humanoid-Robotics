@@ -1,0 +1,12 @@
+.modules {
+  display: flex;
+  align-items: center;
+  padding: 2rem 0;
+  width: 100%;
+}
+
+.moduleIcon {
+  font-size: 3rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
