@@ -2,7 +2,11 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 
 const sidebars: SidebarsConfig = {
   bookSidebar: [
-    'intro',
+    {
+      type: 'link',
+      label: 'Introduction',
+      href: '/',
+    },
     {
       type: 'category',
       label: 'Module 1: ROS 2 Fundamentals',
