@@ -126,7 +126,7 @@ class QdrantService:
 
                 # Create ContentChunk from payload
                 chunk = ContentChunk(
-                    id=result['id'],
+                    id=str(result['id']),
                     text=payload.get('text', ''),
                     url=payload.get('url', ''),
                     page_title=payload.get('page_title', ''),

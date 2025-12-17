@@ -5,7 +5,8 @@
       "Bash(ls:*)",
       "Bash(.specify/scripts/bash/create-new-feature.sh:*)",
       "Bash(git add main.py)",
-      "Bash(git commit -m \"Update port to 7860 and fix uvicorn.run configuration for Hugging Face Space\")"
+      "Bash(git commit -m \"Update port to 7860 and fix uvicorn.run configuration for Hugging Face Space\")",
+      "Bash(git pull origin main --allow-unrelated-histories)"
     ]
   }
 }
