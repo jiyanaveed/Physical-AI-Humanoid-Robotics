@@ -1,48 +1,12 @@
-# Dockerfile for Physical AI & Humanoid Robotics Textbook Development
+# Read the doc: https://huggingface.co/docs/hub/spaces-sdks-docker
+# you will also find guides on how best to write your Dockerfile
 
-# Use the official ROS 2 Humble base image
-FROM ros:humble-ros-base
+FROM python:3.9
+WORKDIR /myEbook
+COPY requirements.txt
+RUN pip install --no-cache-dir --upgrade -r requirements.txt
+COPY app ./myEBook
+EXPOSE 7860
+CMD ["uvicorn", "myEbook.main:app", "--host", "0.0.0.0", "--port", "7860"]
 
-# Set shell to bash
-SHELL ["/bin/bash", "-c"]
 
-# Set up the workspace
-WORKDIR /ros_ws
-
-# Install necessary dependencies
-RUN apt-get update && apt-get install -y \
-    python3-pip \
-    python3-colcon-common-extensions \
-    ros-humble-gazebo-ros-pkgs \
-    ros-humble-opencv-ros-compat \
-    python3-opencv \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
-
-# Install PyTorch and related libraries
-RUN pip install torch torchvision torchaudio
-
-# Install additional Python libraries for Module 4: Control Systems and Robot Dynamics
-RUN pip install numpy scipy sympy python-control
-
-# Install Node.js and npm
-RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
-RUN apt-get install -y nodejs
-
-# Copy the book and source code into the workspace
-COPY book /ros_ws/src/book
-COPY src /ros_ws/src/src
-
-# Install Node.js dependencies for the Docusaurus book
-WORKDIR /ros_ws/src/book
-RUN npm install
-
-# Set the working directory back to the workspace root
-WORKDIR /ros_ws
-
-# Source the ROS 2 setup file
-RUN echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
-RUN echo "source /ros_ws/install/local_setup.bash" >> ~/.bashrc
-
-# The workspace can be built by running:
-# . /opt/ros/humble/setup.sh && colcon build
