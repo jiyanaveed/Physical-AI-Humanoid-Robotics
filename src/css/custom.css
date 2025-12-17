@@ -15,21 +15,32 @@
 
   /* --- Theme Variables --- */
   --color-primary-accent: #FFC107; /* Mustard Yellow */
-  --color-background: #000000;     /* Black */
-  --color-text-primary: #FFFFFF;   /* White for main text */
-  --color-text-secondary: #CCCCCC; /* Light grey for secondary text/lists */
-  --color-card-background: #1A1A1A;/* Slightly lighter black for card background */
-  --color-card-border: #333333;    /* Dark grey for card borders */
+  --color-background: #ffffff;     /* White background */
+  --color-text-primary: #222222;   /* Dark gray for main text */
+  --color-text-secondary: #666666; /* Medium gray for secondary text/lists */
+  --color-card-background: #f8f9fa;/* Light gray for card background */
+  --color-card-border: #e9ecef;    /* Light gray for card borders */
   --color-hover-shadow: rgba(255, 193, 7, 0.2); /* Subtle yellow shadow */
 }
 
 
 /* Ensure Docusaurus variables are also updated for theme consistency */
 html[data-theme='dark'] {
-  --ifm-background-color: var(--color-background);
-  --ifm-font-color-base: var(--color-text-primary);
-  --ifm-navbar-background-color: var(--color-background);
-  --ifm-footer-background-color: var(--color-background);
+  --ifm-background-color: #1a1a1a; /* Dark background */
+  --ifm-font-color-base: #ffffff; /* White text */
+  --ifm-navbar-background-color: #1a1a1a; /* Dark navbar */
+  --ifm-footer-background-color: #1a1a1a; /* Dark footer */
+  --color-background: #1a1a1a; /* Dark background */
+  --color-text-primary: #ffffff; /* White text */
+  --color-text-secondary: #cccccc; /* Light gray text */
+  --color-card-background: #2a2a2a; /* Darker card background */
+  --color-card-border: #444444; /* Darker border */
+}
+
+/* Also define dark mode for the hero section */
+html[data-theme='dark'] .hero-section {
+  background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+  color: #ffffff;
 }
 
 /* Apply global font family */
@@ -43,7 +54,268 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* --- Layout --- */
+/* --- Homepage-specific Layout --- */
+.homepage {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Full-width hero banner */
+.hero-banner {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 6rem 2rem;
+    text-align: center;
+    background: linear-gradient(135deg, var(--color-background) 0%, #f0f4f8 100%);
+    color: var(--color-text-primary);
+    border-bottom: 1px solid var(--color-card-border);
+}
+
+.hero-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--color-primary-accent);
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: var(--color-text-secondary);
+}
+
+.start-reading-button {
+    background-color: var(--color-primary-accent);
+    color: var(--color-background);
+    border: none;
+    padding: 1.25rem 3rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    margin: 0 auto 2rem auto;
+    box-shadow: 0 4px 6px rgba(255, 193, 7, 0.3);
+}
+
+.start-reading-button:hover {
+    background-color: #FFD166; /* Lighter mustard yellow */
+    transform: translateY(-2px);
+}
+
+.hero-description {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    color: var(--color-text-primary);
+    line-height: 1.6;
+}
+
+/* Robotic-themed animation for homepage hero */
+.homepage .robotic-visual {
+    position: relative;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homepage .robotic-dot {
+    width: 12px;
+    height: 12px;
+    background-color: var(--color-primary-accent);
+    border-radius: 50%;
+    margin: 0 5px;
+    position: absolute;
+    opacity: 0;
+    animation: float 3s ease-in-out infinite;
+}
+
+.homepage .robotic-dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.homepage .robotic-dot:nth-child(2) {
+    animation-delay: 0.6s;
+}
+
+.homepage .robotic-dot:nth-child(3) {
+    animation-delay: 1.2s;
+}
+
+.homepage .robotic-dot:nth-child(4) {
+    animation-delay: 1.8s;
+}
+
+.homepage .robotic-dot:nth-child(5) {
+    animation-delay: 2.4s;
+}
+
+@keyframes float {
+    0%, 100% {
+        opacity: 0.3;
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1.2);
+    }
+}
+
+/* Respect reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+    .homepage .robotic-dot {
+        animation: none;
+        opacity: 0.5;
+    }
+}
+
+/* Modules section */
+.modules-section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+    color: var(--color-primary-accent);
+}
+
+.section-description {
+    font-size: 1.2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: var(--color-text-secondary);
+}
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    width: 100%;
+}
+
+.module-card {
+    background-color: var(--color-card-background);
+    border: 1px solid var(--color-card-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+    box-shadow: var(--ifm-card-shadow);
+}
+
+.module-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0,0,0,0.15);
+}
+
+.module-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    color: var(--color-primary-accent);
+}
+
+.module-card ul {
+    padding-left: 20px;
+    flex-grow: 1;
+    margin-bottom: 1.5rem;
+}
+
+.module-card li {
+    margin-bottom: 0.5rem;
+    color: var(--color-text-secondary);
+}
+
+.explore-module-button {
+    display: block;
+    text-align: center;
+    background-color: var(--ifm-color-primary);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    border: 1px solid var(--ifm-color-primary);
+    font-weight: var(--ifm-font-weight-bold);
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.explore-module-button:hover {
+    background-color: var(--ifm-color-primary-dark);
+    color: white;
+}
+
+/* Get started section */
+.get-started-section {
+    padding: 3rem 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.get-started-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+}
+
+.get-started-list li {
+    margin-bottom: 1rem;
+}
+
+/* Homepage-specific responsive adjustments */
+@media (max-width: 768px) {
+    .hero-banner {
+        padding: 3rem 1rem;
+        width: 100%;
+        margin: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .modules-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modules-section,
+    .get-started-section {
+        padding: 2rem 1rem;
+    }
+}
+
 .plugin-doc-id-intro .doc-sidebar-container {
     display: none !important;
 }
@@ -75,6 +347,18 @@ body {
     margin: 0 !important;
 }
 
+/* Full-width hero section that breaks out of container constraints */
+.plugin-doc-id-intro .hero-section {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    padding: 6rem 2rem;
+    box-sizing: content-box; /* Include padding in width calculation */
+}
+
 
 
 /* --- Homepage Section Styles --- */
@@ -82,8 +366,17 @@ body {
   text-align: center;
   padding: 6rem 2rem;
   margin-bottom: 2rem;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
-  color: white;
+  background: linear-gradient(135deg, var(--color-background) 0%, #f0f4f8 100%);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-card-border);
+}
+
+/* Ensure the content inside hero stays centered */
+.hero-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
 }
 
 .hero-title {
@@ -102,14 +395,17 @@ body {
   background-color: var(--color-primary-accent);
   color: var(--color-background);
   border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1.1rem;
+  padding: 1.25rem 3rem;
+  font-size: 1.3rem;
   font-weight: bold;
-  border-radius: 5px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   text-decoration: none;
   display: inline-block;
+  text-align: center;
+  margin: 0 auto 2rem auto;
+  box-shadow: 0 4px 6px rgba(255, 193, 7, 0.3);
 }
 
 .start-reading-button:hover {
@@ -156,6 +452,46 @@ body {
 
 .get-started-list li {
   margin-bottom: 1rem;
+}
+
+/* --- Prominent Elements --- */
+/* Make "Book Modules" prominent */
+.navbar .navbar__link[href*="Book Modules"],
+.navbar .navbar__link[href="/module-1-ros2-fundamentals/chapter-1-1-nodes-topics-services"],
+.plugin-doc-id-homepage .section-title {
+  font-weight: var(--ifm-font-weight-bold) !important;
+  font-size: 1.3rem !important;
+  color: var(--ifm-color-primary) !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Make sidebar headings prominent */
+.menu__list-item--collapsed > .menu__list-item-collapsible > .menu__link,
+.menu__list-item--collapsed > .menu__list-item-collapsible > .menu__caret,
+.menu__link--sublist,
+.menu__list-item-collapsible > .menu__link,
+.menu__list-item-collapsible .menu__link--sublist {
+  font-weight: var(--ifm-font-weight-bold) !important;
+  color: var(--ifm-color-primary) !important;
+  font-size: 1.1rem !important;
+}
+
+/* Make "Explore Module" button prominent */
+.moduleCard a {
+  font-weight: var(--ifm-font-weight-bold) !important;
+  font-size: 1.1rem !important;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Additional prominent styling for important navigation elements */
+.sidebar-title,
+.sidebar-heading,
+.table-of-contents__link--active,
+.menu__link--active {
+  font-weight: var(--ifm-font-weight-bold) !important;
+  color: var(--ifm-color-primary) !important;
 }
 
 /* Navbar */

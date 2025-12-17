@@ -9,7 +9,7 @@
 }
 
 .toggleButton {
-  background-color: #1b6dfc;
+  background-color: var(--ifm-color-primary);
   color: white;
   border: none;
   border-radius: 50%;
@@ -24,7 +24,7 @@
 }
 
 .toggleButton:hover {
-  background-color: #0d5ae5;
+  background-color: var(--ifm-color-primary-dark);
 }
 
 .chatWindow {
@@ -42,7 +42,7 @@
 }
 
 .chatHeader {
-  background-color: #1b6dfc;
+  background-color: var(--ifm-color-primary);
   color: white;
   padding: 16px;
   display: flex;
@@ -121,7 +121,7 @@
 }
 
 .sourceLink {
-  color: #1b6dfc;
+  color: var(--ifm-color-primary);
   text-decoration: none;
 }
 
@@ -155,7 +155,7 @@
 }
 
 .sendButton {
-  background-color: #1b6dfc;
+  background-color: var(--ifm-color-primary);
   color: white;
   border: none;
   border-radius: 50%;
@@ -168,7 +168,7 @@
 }
 
 .sendButton:hover {
-  background-color: #0d5ae5;
+  background-color: var(--ifm-color-primary-dark);
 }
 
 .sendButton:disabled {

@@ -1,8 +1,8 @@
-import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
+import axios, { AxiosInstance, AxiosResponse } from 'axios';
 
-// Get the RAG API URL from environment variables
-const ragApiUrl = process.env.REACT_APP_RAG_API_URL || 'http://localhost:8000';
-const timeout = parseInt(process.env.REACT_APP_RAG_API_TIMEOUT || '30000', 10);
+// Get the RAG API URL - using a default value since Docusaurus handles environment differently
+const ragApiUrl = 'http://localhost:8001'; // Updated to use port 8001 for the simplified backend
+const timeout = 10000; // 10 second timeout
 
 // Create the API client instance
 const ragApiClient: AxiosInstance = axios.create({
@@ -12,5 +12,6 @@ const ragApiClient: AxiosInstance = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
 
 export default ragApiClient;

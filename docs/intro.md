@@ -1,6 +1,5 @@
 ---
 id: intro
-slug: /
 sidebar_position: 1
 hide_sidebar: true
 hide_title: true

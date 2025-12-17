@@ -29,15 +29,15 @@
 .moduleCard a {
   display: block;
   text-align: center;
-  background-color: #333333;
-  color: #FFC107;
+  background-color: var(--ifm-color-primary);
+  color: var(--ifm-color-emphasis-100);
   padding: 0.75rem 1.5rem;
   border-radius: 4px;
   text-decoration: none;
   transition: background-color 0.3s ease;
-  border: 1px solid #FFC107;
+  border: 1px solid var(--ifm-color-primary);
 }
 
 .moduleCard a:hover {
-  background-color: #444444;
+  background-color: var(--ifm-color-primary-dark);
 }

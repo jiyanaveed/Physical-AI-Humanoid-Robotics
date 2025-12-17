@@ -20,13 +20,13 @@
   --color-secondary: #8b5cf6;      /* Purple secondary */
   --color-secondary-light: #a78bfa;
   --color-secondary-dark: #7c3aed;
-  --color-background: #0f172a;     /* Dark blue-gray background */
-  --color-background-light: #1e293b; /* Lighter background for contrast */
-  --color-text-primary: #f1f5f9;   /* Light gray-blue text */
-  --color-text-secondary: #cbd5e1; /* Medium gray-blue text */
+  --color-background: #f8fafc;     /* Light gray-blue background */
+  --color-background-light: #f1f5f9; /* Lighter background for contrast */
+  --color-text-primary: #0f172a;   /* Dark blue-gray text */
+  --color-text-secondary: #64748b; /* Medium gray text */
   --color-text-muted: #94a3b8;    /* Muted text */
-  --color-card-background: #1e293b; /* Darker blue-gray for cards */
-  --color-card-border: #334155;    /* Medium blue-gray for borders */
+  --color-card-background: #ffffff; /* White for cards */
+  --color-card-border: #e2e8f0;    /* Light gray for borders */
   --color-hover-shadow: rgba(59, 130, 246, 0.2); /* Subtle blue shadow */
   --color-success: #10b981;        /* Green for success states */
   --color-success-light: #34d399;
@@ -1775,8 +1775,9 @@ pre code {
   text-align: center;
   padding: 6rem 2rem;
   margin-bottom: 2rem;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1770&q=80') center/cover no-repeat;
-  color: white;
+  background: linear-gradient(135deg, var(--color-background) 0%, #f0f4f8 100%);
+  color: var(--color-text-primary);
+  border-bottom: 1px solid var(--color-card-border);
 }
 
 .hero-title {
